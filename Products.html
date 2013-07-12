@@ -32,7 +32,7 @@
          <script src="js/html5shiv.js"></script>
          <![endif]-->
          <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
- 
+<link rel="stylesheet" type="text/css" href="css/index.css" />
 
     </head>
     <body >
@@ -42,22 +42,23 @@
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <a class="brand" href="#">Shivam ITCS </a>
-                    
+                   <a href="Create.html" class="btn btn-primary pull-right">Add</a>
                 </div>
             </div>
         </div>
         
         <div class="container-fluid">
             <div class="row-fluid">
-                <ul class="nav nav-tabs nav-stacked">
-                    <li> <a href="#"><i class="icon icon-plus"></i> Categories </a></li>
-                    <li> <a href="#"><i class="icon icon-list"></i> Features </a></li>
-                        <li> <a href="Products.html"> <i class="icon icon-list"></i> Products <span class="label label-success pull-right">63</span> </a> </li>
-                      <li> <a href="#"><i class="icon icon-user"></i> About </a></li>
-                      <li> <a href="#"><i class="icon icon-user"></i> Contact </a></li>
-                </ul>
-                
-            </div><!--/row-->
+                <div class="span12">
+                    <legend>All Products</legend>
+                        <div id="products">
+                            
+                            <h2>Loading....</h2>
+                            
+                        </div>
+                   
+                </div><!--/span-->
+                            </div><!--/row-->
             
             <hr>
             
@@ -72,6 +73,27 @@
         <script type="text/javascript">
             app.initialize();
         </script>
-       
+        <style>
+            #products
+            {
+                height:400px;
+                overflow-y:scroll;
+            }
+            </style>
+        <script type="text/javascript">
+            /* <![CDATA[ */
+            $(document).ready(function(){
+                              var content="";
+                              $.getJSON("http://mobile.shivamitconsultancy.com/Service1.svc/AllProduct",function(data){
+                                        //alert(data.length);
+                                        $("#products").empty();
+                                        for(i=0;i<data.length;i++)
+                                        {   
+                                               content += '<div style="border-bottom:1px solid #000;"><h4>' + data[i].ProductName+ '<a href="#" class="btn btn-small pull-right"><i class="icon icon-edit" /></a> </h5><span class="label label-important">$' + data[i].UnitPrice+ '</span> &nbsp;&nbsp;<span class="label label-success"> &nbsp;</span></div>';                                    }
+                                         $(content).appendTo("#products");
+                                        });
+                              });
+            /* ]]> */
+            </script>
     </body>
 </html>
