@@ -47,10 +47,14 @@
             </div>
         </div>
         
-        <div class="container-fluid">
+        <div class="container-fluid" >
             <div class="row-fluid">
                 <div class="span12">
-                    <legend>All Products</legend>
+				<div class="alert alert-success" style="display:none" > 
+				   <h3>Bingo !!</h3>
+				  <p>Products loaded successfully.</p>
+				</div>
+                    <legend>All Products <span class="label label-success pull-right"  id="total" >Test</span></legend>
                         <div id="products">
                             
                             <h2>Loading....</h2>
@@ -66,7 +70,7 @@
                 <p>Shivam ITCS&copy; Company 2013</p>
             </footer>
             
-        </div>        <script type="text/javascript" src="cordova.js"></script>
+        </div>        
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="bootstrap.js"></script>
@@ -82,16 +86,30 @@
             </style>
         <script type="text/javascript">
             /* <![CDATA[ */
+			
+			function createAutoClosingAlert(selector, delay) {
+					var alert = $(selector).fadeIn('slow');
+					window.setTimeout(function() { alert.fadeOut('slow') }, delay);
+				}
             $(document).ready(function(){
+			
+
                               var content="";
+							  var itemCount=0;
                               $.getJSON("http://mobile.shivamitconsultancy.com/Service1.svc/AllProduct",function(data){
                                         //alert(data.length);
                                         $("#products").empty();
-                                        for(i=0;i<data.length;i++)
+										//$("#Total").empty();
+										itemCount=data.length;
+                                        for(i=0;i<itemCount;i++)
                                         {   
-                                               content += '<div style="border-bottom:1px solid #000;"><h4>' + data[i].ProductName+ '<a href="#" class="btn btn-small pull-right"><i class="icon icon-edit" /></a> </h5><span class="label label-important">$' + data[i].UnitPrice+ '</span> &nbsp;&nbsp;<span class="label label-success"> &nbsp;</span></div>';                                    }
-                                         $(content).appendTo("#products");
-                                        });
+                                               content += '<div style="border-bottom:1px solid #000;"><h4>' + data[i].ProductName+ '<a href="#" class="btn btn-small pull-right"><i class="icon icon-edit" /></a> </h5><span class="label label-important">$' + data[i].UnitPrice+ '</span> &nbsp;&nbsp;<span class="label label-success"> &nbsp;</span></div>';                                    
+										}
+                                        $(content).appendTo("#products");                                        
+										$("#total").html(""+i);
+										createAutoClosingAlert(".alert-success", 2000);
+										});
+
                               });
             /* ]]> */
             </script>

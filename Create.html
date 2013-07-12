@@ -43,7 +43,7 @@
                 <div class="container-fluid">
                    
                     <a class="brand" href="#">Shivam ITCS </a>
-                   <a href="Index.html" class="btn btn-primary pull-right">Back</a>
+                   <a href="/Marco/Index.html" class="btn btn-primary pull-right">Back</a>
                 </div>
             </div>
         </div>
@@ -51,16 +51,18 @@
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span12">
-                    
+                  
                     <form class="form-horizontal">
                         <fieldset>
                             
                             <!-- Form Name -->
                             <legend>Create Product</legend>
-                            
+                            <div class="alert alert-success" style="display:none" > 							   
+							  <p>Product Added successfully.</p>
+							</div>
                             <div id="error" class="span3 label label-important" style="display:none">
                                 test
-                                </div>
+                              </div>
                             
                             <!-- Text input-->
                             <div class="control-group">
@@ -165,7 +167,10 @@
             app.initialize();
             
            
-                
+                function createAutoClosingAlert(selector, delay) {
+					var alert = $(selector).fadeIn('slow');
+					window.setTimeout(function() { alert.fadeOut('slow');window.location.href="/Marco/Index.html"; }, delay);
+				}
                 $("#singlebutton").click(function () {
                                          
                                          var URLPopst="http://dataservice.shivamitconsultancy.com/Service1.svc/Create";
@@ -183,8 +188,7 @@
                                              event.preventDefault();
                                              },
                                              success: function (result) {
-                                             // if error from webservice I want to differentiate here somehow
-                                             alert("success"+ result);
+                                             createAutoClosingAlert(".alert-success", 2000);
                                              }
                                              });
                                       
