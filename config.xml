@@ -51,6 +51,7 @@
     <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="TopActivityIndicator" value="gray" />
+	 <preference name="fullscreen" value="true" />    
 
 
     <feature name="Geolocation">
