@@ -92,9 +92,11 @@
         
       
 <script type="text/x-kendo-tmpl" id="template">
-				<div class="alert alert-success">					
+				<div class="alert alert-success">	
+<a href="Edit.html?id=#:ProductID#&name=#:ProductName#&up=#:UnitPrice#&qpu=#:QuantityPerUnit#&Discontinued=#:Discontinued#" class="btn btn-success btn-large pull-right"><i class="icon icon-edit"></i></a>				
 					<h3>#:ProductName#</h3>
 					<p>#:kendo.toString(UnitPrice, "c")#</p>
+					
 				</div>
 			</script>
 
