@@ -1,140 +1,76 @@
+
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-       
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-       
-         <link href="http://cdn.kendostatic.com/2013.1.514/styles/kendo.common.min.css" rel="stylesheet" />
-    <link href="http://cdn.kendostatic.com/2013.1.514/styles/kendo.default.min.css" rel="stylesheet" />
-    <link href="http://cdn.kendostatic.com/2013.1.514/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SHIVAM ITCS - Mobile Demos</title>
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.3.1.min.css">
+	<link rel="stylesheet" href="_assets/css/jqm-demos.css">	
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="autodividers-linkbar.css">
+	<script src="js/jquery.js"></script>
+	<script src="_assets/js/index.js"></script>
+	<script src="js/jquery.mobile-1.3.1.min.js"></script>
+	<script src="js/autodividers-linkbar.js"></script>
+</head>
+<body>
+<div data-role="page" id="demo-page">
 
-        <title>Shivam ITCS</title>
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-         <script src="js/html5shiv.js"></script>
-         <![endif]-->
-         <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
-<link rel="stylesheet" type="text/css" href="css/index.css" />
-
-    </head>
-    <body >
-        
-        
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <a class="brand" href="#">Shivam ITCS </a>
-                   <a href="Create.html" class="btn btn-primary btn-large pull-right"><i class="icon icon-plus"></i></a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="container-fluid" >
-            <div class="row-fluid">
-			
-                <div class="span12" style="margin-top:80px">
-			<div class="controls ">
-                <div class="input-prepend ">
-                    <span class="add-on pull-left">
-                        <i class="icon-search"></i>
-                    </span>
-                    <input type="search" class="input input-control pull-left" placeholder="Search" name="searchtxtbox" id="searchtxtbox"/>
-					
-                </div>
-			
-            </div>
-
-				<div class="demo-section">
-					<div id="listView"></div>
-					<div id="pager" class="k-pager-wrap"></div>
-				</div>
-
-			
-
-			
-                </div><!--/row-->
-            </div><!--/row-->
-            <hr>
+	<div data-role="header" data-theme="f">
+    
+		<h1><img src="img/icon-shivam-20x20.png" width="20px" height="20px" data-position="inline" style="vertical-align:top;"> SHIVAM ITCS</h1>
+		
+	 
+		<a href="index.html" data-rel="back" data-icon="arrow-l" data-iconpos="notext" data-ajax="false">Back</a>
+		<a href="create.html" data-icon="arrow-plus" data-iconpos="notext" data-ajax="true">Add</a>
+	</div><!-- /header -->
+	
+	<div data-role="content"> 
+        <ul data-role="listview" data-inset="true" id="ul_id" data-filter="true">
+           <li>Loading records please wait.....</li>
+        </ul><!-- /listview -->
             
-            <footer>
-                <p>Shivam ITCS&copy; Company 2013</p>
-            </footer>
-            
-        </div>        
-        <script type="text/javascript" src="js/index.js"></script>
-       <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="http://cdn.kendostatic.com/2013.1.514/js/kendo.all.min.js"></script>
+    </div><!-- /content -->
 
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-        
-      
-<script type="text/x-kendo-tmpl" id="template">
-				<div class="alert alert-success">	
-<a href="Edit.html?id=#:ProductID#&name=#:ProductName#&up=#:UnitPrice#&qpu=#:QuantityPerUnit#&Discontinued=#:Discontinued#" class="btn btn-success btn-large pull-right"><i class="icon icon-edit"></i></a>				
-					<h3>#:ProductName#</h3>
-					<p>#:kendo.toString(UnitPrice, "c")#</p>
-					
-				</div>
-			</script>
+    <div data-role="footer" data-position="fixed">
+     <h3>SHIVAM ITCS-Demo</h3>
+    </div><!-- /footer -->
+    
+</div><!-- /page -->
 
 <script>
-        $(document).ready(function() {
-            var dataSource = new kendo.data.DataSource({
-                    transport: {
-                        read: {
-                            url: "http://mobile.shivamitconsultancy.com/Service1.svc/AllProduct",
-                            dataType: "jsonp"
-                        }
-                    },
-                    pageSize: 15
-                });
+$(document).ready(function()
+{
+$.ajax({                                                                   
+    type: "Get",                                                                        
+    url: "http://dataservice.shivamitconsultancy.com/Service1.svc/AllProduct",  
+    contentType: "application/json; charset=utf-8",                                                            
+    dataType: "jsonp",   
+	error: function(msg) {  
+        alert(msg.statusText);
+     },
+    success:successFunction
+});
+function successFunction(data){
 
-            $("#pager").kendoPager({
-                dataSource: dataSource
-            });
+     var html ='';	 
+     $.each(data, function(index, item) {
+	 var url="Edit.html?id="+item.ProductID+"&name="+item.ProductName+"&up="+item.UnitPrice+"&qpu="+item.QuantityPerUnit+"&Discontinued="+item.Discontinued;
+         html += '<li><a href="'+ url +'">' + item.ProductName+ '</a></li>';
+     });
+	 $('#ul_id').empty();
+    $('#ul_id').append($(html));
+    $('#ul_id').trigger('create');    
+    $('#ul_id').listview('refresh');
 
-         var listResult= $("#listView").kendoListView({
-                dataSource: dataSource,
-                template: kendo.template($("#template").html())
-            });
-			//
-		$("#searchtxtbox").change(function () {
-			$filter = new Array();
-			$x = $("#searchtxtbox").val();
-			if ($x) {
-				$filter.push({ field:"ProductName", operator:"contains", value:$x});
-			}
-			listResult.data("kendoListView").dataSource.filter($filter);
-			//$("#totalInfo").html("test");
-			});
-			//$("#totalInfo").html($(".k-pager-info k-label").html());
-        });
-    </script>
+}
+});
+  
 
-   
 
-    </body>
+</script>
+
+
+</body>
 </html>

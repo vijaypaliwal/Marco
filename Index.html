@@ -1,83 +1,58 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-       
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-       
-        
-        <title>Shivam ITCS</title>
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-         <script src="js/html5shiv.js"></script>
-         <![endif]-->
-         <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
- 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SHIVAM ITCS - Mobile Demo</title>
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.3.1.min.css">
+	<link rel="stylesheet" href="_assets/css/jqm-demos.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="grid-listview.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mobile-1.3.1.min.js"></script>
+</head>
+<body>
+<div data-role="page" data-theme="c" id="demo-page" class="my-page">
 
-    </head>
-    <body >
-        
-        
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <a class="brand" href="#">Shivam ITCS </a>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <ul class="nav nav-tabs nav-stacked">
-                    <li class="btn-primary" > <a href="Takeaphoto.html"><i class="icon icon-plus"></i> Take A Picture </a></li>
-                    <li class="btn-success"> <a href="#"><i class="icon icon-list"></i> Features </a></li>
-                        <li class="btn-danger"> <a href="Products.html"> <i class="icon icon-list"></i> Products <span class="label label-success pull-right">63</span> </a> </li>
-                      <li class="btn-inverse"> <a href="#"><i class="icon icon-user"></i> About </a></li>
-                      <li class="btn-warning"> <a href="#"><i class="icon icon-user"></i> Contact </a></li>
-                </ul>
-                
-            </div><!--/row-->
-            
-            <hr>
-            
-            <footer>
-                <p>Shivam ITCS&copy; Company 2013</p>
-            </footer>
-            
-        </div>        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="bootstrap.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-       <style>
-	       .nav-stacked li	a	   
-		   {
-		     padding:20px;
-			 margin:20px 0px;
-		   }
-	   </style>
-    </body>
+	<div data-role="header" data-theme="f">
+    
+		<h1><img src="img/icon-shivam-20x20.png" width="20px" height="20px" data-position="inline" style="vertical-align:top;"> SHIVAM ITCS</h1>
+		
+	</div><!-- /header -->
+	
+	<div data-role="content" data-theme="a">
+		<h1>
+		   Welcome- SHIVAM ITCS mobile native app.
+		</h1> 
+        <ul data-role="listview" id="Navigation" data-inset="true"  data-theme="d">
+       
+        	<li><a href="#" tag="Products.html">             
+            	<h2>Products</h2>                
+            </a></li>
+            <li><a href="#" tag="aboutus.html">             
+            	<h2>About Us</h2>
+            </a></li>
+              <li><a href="#" tag="Contactus.html">             
+            	<h2>Contact Us</h2>
+            </a></li>
+			
+        </ul>
+         
+    </div><!-- /content -->
+    
+    <div data-role="footer" data-theme="c" data-position="fixed">
+        <h3>SHIVAM ITCS-Demo</h3>
+    </div><!-- /footer -->
+
+</div><!-- /page -->
+
+<script>
+$(document).ready(function(e) {
+	$("#Navigation li a").click(function()
+	{
+		window.location.href=$(this).attr("tag");
+	});
+});
+</script>
+</body>
 </html>
