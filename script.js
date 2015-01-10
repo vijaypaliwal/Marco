@@ -2,7 +2,7 @@
         var app = angular.module('app', []);
         //var url = "http://localhost:2462/api/People/";
 
-        var url = "http://temp.shivamitconsultancy.com/api/People/";
+        var url = "http://angularpro.shivamitconsultancy.com/api/People/";
         app.controller('mainController', function ($scope, $http) {
             $scope.message = 'Home';
             $scope.searchText = '';
