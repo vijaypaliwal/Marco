@@ -13,7 +13,7 @@
     </description>
 
     <author href="http://shivamitconsultancy.com" email="ceo@shivamitconsultancy.com">
-        Angular Mobile 
+        Angular Mobile App
     </author>
 
     <!--
@@ -93,7 +93,7 @@
         Otherwise, you can specify specific domains:
     -->
 
-        <access origin="http://angularpro.shivamitconsultancy.com/" subdomains="true"/>               
+        <access origin="*" subdomains="true"/>               
 
        <!-- allow any secure requests to http://mobile.shivamitconsultancy.com/-->	        
 
